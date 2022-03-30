@@ -57,6 +57,7 @@ npx create-react-app app-name --template typescript
 2. install Monaco editor
 ```
 npm install monaco-editor@0.33.0
+npm install @monaco-editor/react
 ```
 
 3. run project
