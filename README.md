@@ -4,9 +4,7 @@ Test Monaco Editor based on React
 ## Work note
 1. create react APP
 ```
-npm i create-react-app -g
-
-create-react-app app-name
+npx create-react-app app-name --template typescript
 ```
 
 2. install monaco
