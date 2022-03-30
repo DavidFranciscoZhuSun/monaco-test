@@ -44,3 +44,22 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+# Monaco-test
+Test Monaco Editor based on React
+
+## Work note
+1. create react APP
+```
+npx create-react-app app-name --template typescript
+```
+
+2. install Monaco editor
+```
+npm install monaco-editor@0.33.0
+```
+
+3. run project
+```
+npm start
+```
