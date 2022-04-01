@@ -31,13 +31,28 @@ const MonacoEditorPage: React.FC<IProps> = () => {
         <h3>Monaco Editor</h3>
         <MonacoEditor
           className="editor-1"
-          width="1800px"
+          width="100%"
           height="880px"
           language="java"
           theme="vs"
           value={javaCode}
+          options={{
+            automaticLayout: true, //自动布局
+            // wordWrap: 'off', //多出width的换行展示（换行不增加代码行）
+            // IEditorOptions
+            folding: true, //代码折叠
+            // foldingStrategy: 'indentation',
+            // readOnly: true,
+            // suggest: {},
+            // suggestOnTriggerCharacters: true,
+            // hover: { above: true, enabled: false },
+            // guides: {},
+          }}
+          editorDidMount={(editor, monaco) => {
+            editor.revealPositionInCenter({ lineNumber: 200, column: 0 });
+          }}
         />
-        <p
+        {/* <p
           style={{
             borderTop: "double",
             borderColor: "blue",
@@ -46,14 +61,14 @@ const MonacoEditorPage: React.FC<IProps> = () => {
         />
         <MonacoEditor
           className="editor-2"
-          width="1800px"
-          height="100px"
+          width="100%"
+          height="300px"
           language="typescript"
           theme="vs"
           value={tsxCode}
-        />
+        /> */}
       </div>
-      <div
+      {/* <div
         className="monaco-diff-editor-window"
         style={{
           borderStyle: "double",
@@ -64,16 +79,29 @@ const MonacoEditorPage: React.FC<IProps> = () => {
         <h3>Monaco Diff Editor</h3>
         <MonacoDiffEditor
           className="diff-editor-1"
-          width="1800px"
-          height="880px"
+          width="100%"
+          height="980px"
           language="java"
           theme="vs"
           original={bicOldCode}
           value={bicNewCode}
-          options={{ renderSideBySide: false, fontSize: 20 }}
+          options={{
+            fontSize: 12,
+            // IDiffEditorBaseOptions
+            maxComputationTime: 5000, //毫秒
+            maxFileSize: 50, //MB
+            renderSideBySide: true,
+            diffCodeLens: false,
+            diffWordWrap: "on", //控制换行，让行显示与width保持一致（换行不增加代码行）
+            enableSplitViewResizing: true,
+            ignoreTrimWhitespace: false, //不一致代码重点标记是否包括换行
+            originalEditable: false, //原始代码是否可编辑，inline模式下无效
+            renderIndicators: false, //是否要-/+标注添删代码
+            renderOverviewRuler: true, //代码全局追踪
+          }}
         />
-      </div>
-      <div
+      </div> */}
+      {/* <div
         className="monaco-editor-window-else"
         style={{
           borderStyle: "double",
@@ -83,13 +111,16 @@ const MonacoEditorPage: React.FC<IProps> = () => {
       >
         <h3>Monaco Editor TSX</h3>
         <MonacoDiffEditor
+          value={bfcNewCode}
+          original={bfcOldCode}
           className="diff-editor-2"
-          width="1800px"
+          width="100%"
           height="880px"
           language="java"
           theme="vs"
+          options={{ renderSideBySide: false }}
         />
-      </div>
+      </div> */}
     </>
   );
 };
